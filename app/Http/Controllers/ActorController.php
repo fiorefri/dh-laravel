@@ -79,7 +79,7 @@ class ActorController extends Controller
       $actores = Actor::where('first_name', 'like', "%$buscar%")
       ->orderBy('last_name')
       ->paginate(5)
-      ->withPath('/actores/search');
+      ->withPath("/actores/search?search=$buscar");
       // ->get();
       return view("actores", compact("actores")); //->with("actores", $actores)
     }
