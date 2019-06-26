@@ -86,3 +86,15 @@ Route::get("peliculas/{id}", function($id) {
   ];
   return view("detallePelicula", compact("peliculas", "id"));
 });
+
+// CLASE 2:
+Route::get('peliculas', "MovieController@index"); // Busca en el controlador el metodo "index"
+Route::get('actores', "ActorController@index");
+
+// Crear la ruta /actores/buscar, que redirigirá al método
+// ActorController@search, y retorne la vista actores.blade.php.
+Route::get('actores/search', "ActorController@search");
+
+// Crear la ruta /actor/{id}, que redirigirá al método ActorController@show,
+// y retorne la vista actor.blade.php.
+Route::get('actor/{id}', "ActorController@show"); // Todos los parametros parametrizados siempre van al final
