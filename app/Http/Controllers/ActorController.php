@@ -26,8 +26,7 @@ class ActorController extends Controller
      // Agregar al modelo Actor, el método getNombreCompleto.
     public function index()
     {
-      $actores = Actor::paginate(10)
-      ->withPath('actores');
+      $actores = Actor::paginate(10);
       return view("/actores", compact("actores")); // actores.blade.php
     }
 
@@ -75,8 +74,8 @@ class ActorController extends Controller
     // Modificar el resultado de las búsquedas para que muestre el listado de
     // actores ordenados por apellido.
     public function search(){
-      $buscar = $_GET['search'];
-      $actores = Actor::where('first_name', 'like', "%$buscar%")
+      $buscar   = $_GET['search'];
+      $actores  = Actor::where('first_name', 'like', "%$buscar%")
       ->orderBy('last_name')
       ->paginate(5)
       ->withPath("/actores/search?search=$buscar");

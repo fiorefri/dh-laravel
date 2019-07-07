@@ -8,9 +8,7 @@ según la página. Hacer pruebas de esta funcionalidad. --}}
 
 @extends('plantilla')
 
-@section('titulo')
-  Pelicula {{$id}}
-@endsection
+@section('titulo', "Pelicula $id")
 
 @section('principal')
   <ul>

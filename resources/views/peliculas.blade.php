@@ -8,9 +8,7 @@ según la página. Hacer pruebas de esta funcionalidad. --}}
 
 @extends('plantilla')
 
-@section('titulo')
-  Listado de Peliculas
-@endsection
+@section('titulo', "Listado de peliculas")
 
 @section('principal')
   {{-- <h1>Lista de Peliculas</h1> --}}
@@ -45,11 +43,12 @@ según la página. Hacer pruebas de esta funcionalidad. --}}
 
   <h1>Lista de Peliculas</h1>
   <ul>
+    {{-- @dd($peliculas) --}}
     @forelse ($peliculas as $key => $pelicula)
-      @if ($pelicula["rating"] > 8)
-        <li> {{$pelicula["titulo"]}} | {{$pelicula["rating"]}} | Recomendada</li>
+      @if ($pelicula->rating > 8)
+        <li> {{$pelicula->title}} | {{$pelicula->rating}} | Recomendada</li>
       @else
-        <li> {{$pelicula["titulo"]}} | {{$pelicula["rating"]}} </li>
+        <li> {{$pelicula->title}} | {{$pelicula->rating}} </li>
       @endif
     @empty
       <li> No hay películas </li>
